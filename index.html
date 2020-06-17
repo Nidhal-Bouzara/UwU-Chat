@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Firebase Firestore scripts that need to be loaded first -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+  <!-- Font Awesome script -->
+  <script src="https://kit.fontawesome.com/48f40abb71.js" crossorigin="anonymous"></script>
+
+  <!-- My CSS -->
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <!-- Title -->
+  <title>UwU Chat</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md">
+
+    <!-- logo image and title -->
+    <a class="logo navbar-brand text-dark" href="#">
+      <img id="logo-img" src="/Images/logo.png" alt="logo of UWU CHat">
+      <h4>UwU Chat</h4>
+    </a>
+
+    <!-- mobile expand toggler -->
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu" type="button">
+      <span class="navbar-toggler-icon text-secondary"><i class="fas fa-bars"></i></span>
+    </button>
+
+    <!-- navbar navigation links on the right -->
+    <div id="navbarMenu" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="navi-links nav-link text-dark" href="#">Chat</a>
+        </li>
+        <li class="nav-item">
+          <button id="support-button" class="btn btn-large btn-danger nav-link navi-links" type="button" name="Support-us">&nbsp;<i class="fas fa-heart"></i>&nbsp;&nbsp;Support Us</button>
+        </li>
+        <li></li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <!-- chat display -->
+  <section id="chat-display" class="container-fluid bg-light border border-dark chat-display">
+  </section>
+
+  <!-- Set user-name -->
+  <form id="username-input__form" class="container">
+    <div class="form-group row align-items-center">
+      <div class="col-1">
+        <label id="username-input__label" for="username" class="text-secondary">Username: </label>
+      </div>
+      <div class="col-2">
+        <input id="username-input__text" class="form-control" type="text" name="username" placeholder="&nbsp;Aleph">
+      </div>
+      <div class="col-2">
+        <input id="username-input__button" class="btn btn-primary font-weight-bold" type="submit" name="username-submit" value="Go Chat UwU">
+      </div>
+    </div>
+  </form>
+
+  <!-- chat input section -->
+  <div id="msg-input" class="msg-input chat-sender row align-items-start chat-sender__container">
+    <form class="chat-form col-11">
+      <div class="form-group row align-items-center">
+        <label class="text-secondary input-label" for="chat-msg">Chat: </label>
+        <input placeholder="Type to Chat..." class="form-control col-8" type="text" name="chatMsg">
+        <button id="send-button" class="btn btn-info col-1 font-weight-bold" type="submit" name="send"><i class="far fa-paper-plane"></i>&nbsp;Send</button>
+      </div>
+    </form>
+    <button id="user-change" class="col-1 btn btn-outline-warning" type="button" name="button"><span class="font-weight-bold"><i class="far fa-user"></i>&nbsp;Change User</span></button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <!-- Font Awesome icons scripts -->
+  <script src="https://kit.fontawesome.com/48f40abb71.js" crossorigin="anonymous"></script>
+
+  <!-- Firebase firestore files -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAFsXBq-CcnChwaPkSOnKUm1ltxGBhl3rE",
+      authDomain: "uwu-chat-885dc.firebaseapp.com",
+      databaseURL: "https://uwu-chat-885dc.firebaseio.com",
+      projectId: "uwu-chat-885dc",
+      storageBucket: "uwu-chat-885dc.appspot.com",
+      messagingSenderId: "104648372393",
+      appId: "1:104648372393:web:9406550f0f824278a679b8",
+      measurementId: "G-R068YRYR91"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore();
+  </script>
+
+  <!-- My Scripts -->
+  <script src="/scripts/login.js" charset="utf-8"></script>
+  <script src="/scripts/delete.js" charset="utf-8"></script>
+  <script src="/scripts/main.js" charset="utf-8"></script>
+</body>
+
+</html>
